@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.Stream;
 
 public class Main {
@@ -49,6 +50,11 @@ public class Main {
 				.sorted((x, y) -> x.compareTo(y)).reduce((x, y) -> ((x + y)));
 		System.out.println(sum.get());
 		System.out.println((double) sum.get() / qntt);
+		
+		Stream<Integer> stream6 = intsList.stream();
+		OptionalDouble avr = stream6.distinct().filter(x -> x > 7).filter(x -> x < 17).map(x -> x * 2)
+				.sorted((x, y) -> x.compareTo(y)).mapToInt(x->x).average();
+		System.out.println(avr);
 		
 		
 	}
