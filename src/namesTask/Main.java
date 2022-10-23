@@ -1,5 +1,6 @@
 package namesTask;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Main {
@@ -16,6 +17,13 @@ public class Main {
 		System.out.println();
 
 		Stream<String> stream2 = names.stream();
-		stream2.map(x -> x.toLowerCase()).sorted().limit(1).forEach(System.out::print);
+		String str = stream2.map(x -> x.toLowerCase()).sorted((x, y) -> {
+			if (x.compareTo(y) > 0) {
+				return 1;
+			} else {
+				return -1;
+			}
+		}).findFirst().orElse("Empty");
+		System.out.println(str);
 	}
 }

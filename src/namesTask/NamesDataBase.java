@@ -26,4 +26,7 @@ public class  NamesDataBase {
 	public Stream<String> stream() {
 		return namesList.stream();
 	}
+	public String getValue(int i) {
+		return namesList.get(i);
+	}
 }
